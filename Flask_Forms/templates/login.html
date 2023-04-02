@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Login</title>
+	</head>
+	<body>
+        <div class="container">
+		<h1>Login</h1>
+        <!-- This is where our form will go. -->
+        <form class="form form-control" method="POST" action="{{url_for('secrets')}}">
+            {{ form.csrf_token }}
+            {{ form.email.label }} {{form.email(size=30)}}
+            <br>
+            {{form.password.label }} {{ form.password(size=30)}}
+            <br>
+            <a type="button" class="btn btn-primary btn-lg"  href="{{url_for('secrets')}}" >Login</a>
+        </form>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe List</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <table>
+        <tbody>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Map Url
+            </th>
+            <th>
+                Picture Url
+            </th>
+            <th>
+                    Location
+            </th>
+            <th>
+                Sockets
+            </th>
+            <th>
+                Toilet
+            </th>
+            <th>
+                Call-In
+            </th>
+            <th>
+                Seats
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+        {% for cafe in cafes: %}
+            <tr>
+                <th>
+                    {{cafe.name}}
+                </th>
+                <th>
+                    <a href="{{cafe.map_url}}">map</a>
+                </th>
+                <th>
+                    <img src="{{cafe.img_url}}" >
+                </th>
+                <th>
+                    {{cafe.location}}
+                </th>
+                <th>
+                    {{cafe.has_sockets}}
+                </th>
+                <th>
+                    {{cafe.has_wifi}}
+                </th>
+                <th>
+                    {{cafe.can_take_calls}}
+                </th>
+                <th>
+                    {{cafe.seats}}
+                </th>
+                <th >
+                    <a href="{{url_for('update_price', cafe_id=cafe.id)}}">{{cafe.coffee_price}}</a>
+                </th>
+                </tr>
+        <!--        <span><span>{{cafe.name}} - </span> <span></span> </span>-->
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
